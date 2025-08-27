@@ -7,65 +7,29 @@ A modern real-time chat application with dark glassmorphism UI design.
 **Backend:** Node.js + Express + Socket.io + SQLite + JWT  
 **Frontend:** Next.js 14 + TypeScript + Tailwind CSS + React Context
 
-## � Database Structure
+## 📊 Database Structure
 
-### Users Table
-```sql
-users (
-  id INTEGER PRIMARY KEY,
-  username TEXT UNIQUE,
-  email TEXT UNIQUE,
-  password_hash TEXT,
-  full_name TEXT,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-)
-```
+- **Users:** Store user credentials (username, email, password hash), profile info, and timestamps
+- **Conversations:** Track one-to-one chat relationships between users with creation/update timestamps
+- **Messages:** Store message content, sender info, conversation references, and support text/image types
 
-### Conversations Table
-```sql
-conversations (
-  id INTEGER PRIMARY KEY,
-  user1_id INTEGER,
-  user2_id INTEGER,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-)
-```
-
-### Messages Table
-```sql
-messages (
-  id INTEGER PRIMARY KEY,
-  conversation_id INTEGER,
-  sender_id INTEGER,
-  content TEXT,
-  message_type TEXT DEFAULT 'text',
-  image_url TEXT,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-)
-```
-
-## �️ Technical Approach
+## 🏗️ Technical Approach
 
 ### Real-Time Communication
 - **Socket.io** for instant messaging and online status
 - Room-based messaging for conversation isolation
-- Event-driven architecture for real-time updates
 
 ### Authentication & Security
 - **JWT tokens** for secure authentication
 - **bcryptjs** for password hashing
-- Middleware protection for authenticated routes
 
 ### Database Design
 - **SQLite** for simplicity and portability
-- **One-to-one conversations** between users
-- **Message history** with timestamps and type support
+- **One-to-one conversations** with message history
 - **Foreign key relationships** for data integrity
 
 ### Frontend Architecture
 - **React Context API** for global state management
-- **Custom hooks** for API calls and socket management
 - **Component-based** architecture with TypeScript
 - **Dark glassmorphism UI** with Tailwind CSS
 
@@ -87,7 +51,7 @@ messages (
 
 3. **Access the app** at `http://localhost:3000`
 
-## � Features
+## 📱 Features
 
 - User registration and login
 - Real-time messaging
